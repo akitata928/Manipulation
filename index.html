@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>現代操弄藍圖 (The Blueprint of Modern Manipulation)</title>
+    <title>現代操弄藍圖：新興宗教與神壇經濟的五層社會工程</title>
     <style>
         :root {
-            --primary-color: #0056b3;
-            --active-color: #d93025;
+            --primary-color: #4a148c; /* 使用深紫色呼應主題 */
+            --active-color: #d81b60;
             --bg-color: #ffffff;
             --text-color: #333333;
-            --border-color: #dddddd;
-            --toc-bg: #f8f9fa;
+            --border-color: #e2e8f0;
+            --sidebar-bg: #f3e5f5; /* 淺紫背景 */
         }
         
-        /* 加入這行 CSS 就能讓支援的瀏覽器原生平滑滾動 */
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 30px; /* 預留一點頂部空間，避免標題貼齊螢幕邊緣 */
         }
 
         body {
@@ -25,269 +23,314 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
-        h1 {
-            font-size: 2.2em;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        h2 {
-            font-size: 1.8em;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
-            margin-top: 40px;
-        }
-        h3 {
-            font-size: 1.4em;
-            color: var(--primary-color);
-            margin-top: 25px;
-        }
-        p {
-            margin-bottom: 15px;
-        }
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        /* 目錄區塊設計 (Table of Contents) */
-        .toc {
-            background-color: var(--toc-bg);
-            border: 1px solid #a2a9b1;
-            padding: 15px 25px;
-            display: inline-block;
-            margin: 20px 0;
-            border-radius: 4px;
-            position: sticky; /* 讓目錄在螢幕夠大時可以固定 */
-            top: 20px;
-            z-index: 100;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .toc h2 {
-            margin-top: 0;
-            border-bottom: none;
-            font-size: 1.2em;
-            text-align: center;
-        }
-        .toc ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .toc li {
-            margin-bottom: 8px;
-        }
-        .toc ul ul {
-            padding-left: 20px;
-            list-style-type: none; /* 拿掉預設圓點讓畫面更乾淨 */
-            border-left: 2px solid #e0e0e0;
-            margin-left: 5px;
-            margin-top: 5px;
-        }
-        
-        /* 滾動監聽的動態高亮效果 */
-        .toc a.active {
-            font-weight: bold;
-            color: var(--active-color);
-            padding-left: 5px;
-            border-left: 3px solid var(--active-color);
+            margin: 0;
+            display: flex;
         }
 
-        /* 表格設計 */
+        /* === 左側邊欄目錄設計 === */
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding: 30px 20px;
+            box-sizing: border-box;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            border-bottom: 2px solid #ce93d8;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar ul ul {
+            padding-left: 15px;
+            border-left: 2px solid #ce93d8;
+            margin-left: 5px;
+            margin-top: 8px;
+        }
+
+        .sidebar a {
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 0.95em;
+            display: block;
+            transition: color 0.2s;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            color: var(--active-color);
+            font-weight: bold;
+        }
+
+        /* === 右側主要內容區 === */
+        .main-content {
+            margin-left: 280px;
+            padding: 40px 60px;
+            max-width: 900px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        h2.section-title {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #6a1b9a;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 18px;
+            font-size: 1.05em;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin: 25px 0;
+            background-color: #fff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
         }
         th, td {
-            border: 1px solid #a2a9b1;
-            padding: 12px;
+            border: 1px solid var(--border-color);
+            padding: 14px;
             text-align: left;
         }
         th {
-            background-color: #eaecf0;
+            background-color: #f3e5f5;
             font-weight: bold;
+            color: var(--primary-color);
         }
         tr:nth-child(even) {
-            background-color: #f8f9fa;
+            background-color: #fafafa;
         }
-        
-        /* 強調與引言 */
+
         blockquote {
-            background: #f9f9f9;
-            border-left: 5px solid #ccc;
-            margin: 1.5em 10px;
-            padding: 1em 15px;
+            background: #fdfbf7;
+            border-left: 5px solid #ab47bc;
+            margin: 2em 0;
+            padding: 1.5em 20px;
             font-style: italic;
+            color: #555;
+            border-radius: 0 4px 4px 0;
         }
+
         .highlight {
-            background-color: #fff3cd;
-            padding: 2px 4px;
-            border-radius: 3px;
+            background-color: #e1bee7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #4a148c;
+        }
+
+        .math-concept {
+            font-family: monospace;
+            background-color: #f1f5f9;
+            padding: 3px 6px;
+            border-radius: 4px;
+            color: #c62828;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 20px;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 25px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>現代操弄藍圖 (The Blueprint of Modern Manipulation)</h1>
-    
-    <p><strong>現代操弄藍圖</strong>（英語：<em>The Blueprint of Modern Manipulation</em>），又稱<strong>五層級心靈控制架構</strong>，是一種描述現代社會工程與心理操弄運作機制的理論模型。該理論指出，現代的影響力已從傳統的「說服」（透過邏輯與證據改變觀點）轉變為「重塑現實」（透過情緒與社會壓力製造認同）。</p>
-    
-    <p>此架構認為，人類的政治、文化與社會信念往往並非出於獨立思考，而是身處於一套被精心設計的「無形牢籠」中。操弄者的最終目標並非讓大眾相信某個謊言，而是讓特定立場在社會上顯得「安全且必然」，同時讓對立面顯得「危險且代價高昂」。</p>
-
-    <div class="toc">
-        <h2>目錄</h2>
+    <div class="sidebar">
+        <h2>📑 目錄導覽</h2>
         <ul>
-            <li><a href="#section-1">1. 核心概念</a></li>
-            <li><a href="#section-2">2. 五層級架構概述</a></li>
-            <li><a href="#section-3">3. 運作機制詳解</a>
+            <li><a href="#section-intro">前言：靈性直銷</a></li>
+            <li><a href="#section-1">1. 運作機制總覽表</a></li>
+            <li><a href="#section-2">2. 五層級機制詳解</a>
                 <ul>
-                    <li><a href="#level-1">3.1 第一階段：藍圖（設計師）</a></li>
-                    <li><a href="#level-2">3.2 第二階段：誘捕（誘惑者）</a></li>
-                    <li><a href="#level-3">3.3 第三階段：故障（混淆者）</a></li>
-                    <li><a href="#level-4">3.4 第四階段：執行（攻擊者）</a></li>
-                    <li><a href="#level-5">3.5 第五階段：上鎖（獄卒）</a></li>
+                    <li><a href="#level-1">2.1 藍圖設計（神聖現實）</a></li>
+                    <li><a href="#level-2">2.2 誘捕機制（情感劫持）</a></li>
+                    <li><a href="#level-3">2.3 認知故障（資訊隔離）</a></li>
+                    <li><a href="#level-4">2.4 側翼執行（上下線階層）</a></li>
+                    <li><a href="#level-5">2.5 心理囚禁（團體制約）</a></li>
                 </ul>
             </li>
-            <li><a href="#section-4">4. 魁儡狀態與反擊機制</a></li>
+            <li><a href="#section-3">3. 總結與破局之道</a></li>
         </ul>
     </div>
 
-    <h2 id="section-1" class="scroll-section">1. 核心概念</h2>
-    <p>傳統觀念認為，說服是一場「贏得爭論」的過程，雙方會在天平的兩端放上證據與邏輯。然而，現代操弄藍圖打破了這個迷思。</p>
-    <p>此理論強調，現代社會工程是一條<strong>「心靈的工廠流水線」</strong>。系統不要求你發自內心地相信，而是製造出一種環境，讓你覺得「盲從」比「懷疑」更安全。在這種環境下，保持獨立思考會面臨極大的社交成本（如被出征、被孤立）。</p>
+    <div class="main-content">
+        <h1>🕉️ 現代操弄藍圖：新興宗教與神壇經濟的五層社會工程</h1>
+        
+        <h2 id="section-intro" class="section-title" style="margin-top: 0;">前言：從信仰慰藉到「靈性直銷」</h2>
+        <p>傳統宗教提供心靈的平靜與哲學思考，而現代變調的新興宗教（或稱高度個人崇拜的信仰團體，如台灣媒體常探討的「紫衣神教」），則是一套極度精密的「社會工程學」與「商業直銷模型」。</p>
+        
+        <p>在這種組織中，<strong>「信仰」被量化為可以交易的籌碼</strong>。操弄者將信徒的大腦視為可駭入的系統，透過一套五層級的藍圖，將人們在現實生活中的脆弱與焦慮，轉化為組織擴張的燃料。在這裡，奉獻財富與時間不再是個人修養，而是被制約為「靈性升等」的唯一途徑。</p>
 
-    <h2 id="section-2" class="scroll-section">2. 五層級架構概述</h2>
-    <p>此系統並非隨機發生，而是一場對人類心智的有組織攻擊。以下為五個階段的總覽表格：</p>
-    <table>
-        <thead>
-            <tr>
-                <th>階段</th>
-                <th>角色原型</th>
-                <th>核心目標</th>
-                <th>運作機制</th>
-                <th>具體比喻</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>I</strong></td>
-                <td><strong>設計師 (The Architect)</strong></td>
-                <td>建構現實</td>
-                <td>在爭論開始前，先決定討論的邊界。</td>
-                <td><strong>建商劃地</strong>：決定你能看見哪片風景。</td>
-            </tr>
-            <tr>
-                <td><strong>II</strong></td>
-                <td><strong>誘惑者 (The Seducer)</strong></td>
-                <td>劫持情緒</td>
-                <td>繞過理性，攻擊大腦的杏仁核。</td>
-                <td><strong>恐怖情人</strong>：先愛意轟炸，再情緒勒索。</td>
-            </tr>
-            <tr>
-                <td><strong>III</strong></td>
-                <td><strong>混淆者 (The Confuser)</strong></td>
-                <td>破壞邏輯</td>
-                <td>製造資訊過載與認知失調。</td>
-                <td><strong>烏賊戰術</strong>：吐出大量墨汁讓你看不清真相。</td>
-            </tr>
-            <tr>
-                <td><strong>IV</strong></td>
-                <td><strong>攻擊者 (The Aggressor)</strong></td>
-                <td>武器化部落主義</td>
-                <td>製造對立，將受眾變成系統的打手。</td>
-                <td><strong>幫派堂口</strong>：鼓動互相攻擊，帶風向出征。</td>
-            </tr>
-            <tr>
-                <td><strong>V</strong></td>
-                <td><strong>獄卒 (The Jailer)</strong></td>
-                <td>工程化服從</td>
-                <td>利用社交恐懼完成最終的心理囚禁。</td>
-                <td><strong>溫水煮青蛙</strong>：害怕被排擠而自我審查。</td>
-            </tr>
-        </tbody>
-    </table>
+        <h2 id="section-1" class="section-title">1. 宗教操弄運作總覽表</h2>
+        <p>這些系統並非單純的迷信，而是一場對人類心智的有組織攻擊。以下為五個階段的邏輯模型與在地化現象對照：</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>階段</th>
+                    <th>戰術目標</th>
+                    <th>數學 / 邏輯模型對照</th>
+                    <th>台灣在地常見現象 / 工具箱</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. 藍圖</strong></td>
+                    <td>建構神聖現實</td>
+                    <td><span class="math-concept">限縮定義域 ($Domain$)</span></td>
+                    <td>壟斷救贖解釋權、植入「業力引爆」恐懼框架</td>
+                </tr>
+                <tr>
+                    <td><strong>2. 誘捕</strong></td>
+                    <td>情感劫持與定價</td>
+                    <td><span class="math-concept">扭曲效用函數 ($Utility$)</span></td>
+                    <td>愛意轟炸、將「繳交護持金/時間奉獻」等價於靈性提升</td>
+                </tr>
+                <tr>
+                    <td><strong>3. 故障</strong></td>
+                    <td>壓制理性查證</td>
+                    <td><span class="math-concept">極大化資訊熵 ($Entropy$)</span></td>
+                    <td>神聖化高層貪婪（收受名車）、將外界批評抹黑為「魔考」</td>
+                </tr>
+                <tr>
+                    <td><strong>4. 執行</strong></td>
+                    <td>信徒業務化</td>
+                    <td><span class="math-concept">階層圖論 ($Hierarchical\ Graph$)</span></td>
+                    <td>接引利他 (直銷拉下線)、菁英階級升等制、連坐法</td>
+                </tr>
+                <tr>
+                    <td><strong>5. 囚禁</strong></td>
+                    <td>完成絕對制約</td>
+                    <td><span class="math-concept">馬可夫鏈吸收態 ($Absorbing\ State$)</span></td>
+                    <td>統一紫色制服、萬人集體跪拜、退出的靈性恐懼與社交死亡</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <h2 id="section-3" class="scroll-section">3. 運作機制詳解</h2>
+        <h2 id="section-2" class="section-title">2. 五層級運作機制詳解</h2>
 
-    <h3 id="level-1" class="scroll-section">3.1 第一階段：藍圖（設計師）</h3>
-    <p>在受眾聽到任何論點之前，設計師已經透過設定遊戲規則贏得了比賽。</p>
-    <ul>
-        <li><strong>議程設定 (Agenda Setting)</strong>：控制大眾能討論什麼話題。</li>
-        <li><strong>框架建構 (Framing)</strong>：設定觀察視角以強迫導向特定結論。</li>
-        <li><strong>彌天大謊 (The Big Lie)</strong>：建立一個大到讓人不敢質疑的虛假前提。</li>
-        <li><strong>刻意模糊 (Intentional Vagueness)</strong>：語言空泛，讓受眾將自己的期待投射其中。</li>
-    </ul>
+        <h3 id="level-1">2.1 第一層：藍圖設計（建構神聖現實與恐懼框架）</h3>
+        <p><strong>【戰略】：設定絕對的靈性定義域，壟斷救贖的解釋權。</strong><br>
+        在信徒剛接觸團體時，組織會先重新定義你的「世界觀」。他們不跟你辯論傳統佛法或科學，而是直接建立一個<strong>不可證偽的封閉邏輯</strong>。</p>
+        <ul>
+            <li><strong>業力恐懼與唯一救贖</strong>：設計師會植入一個「彌天大謊（The Big Lie）」——每個人都背負著隨時會引爆的「業力」，而宇宙中只有「唯一一位」大成就明師擁有度化業力的能力。</li>
+            <li><strong>邏輯壟斷（極端條件機率）</strong>：
+                <ul>
+                    <li>當你好運時：$\to$ 「感恩師父、讚歎師父」（師父加持）。</li>
+                    <li>當你倒楣時：$\to$ 「業力引爆，還好師父幫你擋了重災，不然會更慘」。</li>
+                </ul>
+                這種「穩賺不賠」的解釋框架，讓信徒的任何生活體驗，最終都會推導到「必須絕對依賴師父」。
+            </li>
+        </ul>
 
-    <h3 id="level-2" class="scroll-section">3.2 第二階段：誘捕（誘惑者）</h3>
-    <p>由於大腦處理邏輯的速度遠慢於處理情緒，誘惑者會直接癱瘓受眾的理性。</p>
-    <ul>
-        <li><strong>恐懼訴求 (Appeal to Fear)</strong>：拉響心理警報，使人急於尋找安全感。</li>
-        <li><strong>愛意轟炸 (Love Bombing)</strong>：給予極高的情緒價值與群體認同。</li>
-        <li><strong>隨波逐流 (Join the Crowd)</strong>：利用同儕壓力，暗示「不跟上就會被拋棄」。</li>
-    </ul>
+        <h3 id="level-2">2.2 第二層：誘捕機制（情感劫持與靈性定價）</h3>
+        <p><strong>【戰略】：扭曲效用函數，將「奉獻」等價於「靈性提升」。</strong><br>
+        針對遭遇人生低谷（生病、失業、感情受挫）的新人，組織會啟動最強烈的「愛意轟炸（Love Bombing）」。師兄師姐會給予無微不至的關心，讓你產生極強的歸屬感，接著將這種情感依賴「變現」。</p>
+        <ul>
+            <li><strong>奉獻財富等於精神靈性提升</strong>：組織巧妙地將「繳交弘法護持金」或「購買專屬周邊（如制服、坐墊）」包裝成「破除貪嗔痴」或「累積成佛資糧」的具體表現。你捐的不是錢，是你的「誠心」。</li>
+            <li><strong>時間的剝奪</strong>：要求信徒頻繁參與法會、禪行分享會。當你的業餘時間被組織徹底榨乾時，自然沒有時間與外界的非信徒交流，從而切斷了外部的現實連結。</li>
+        </ul>
 
-    <h3 id="level-3" class="scroll-section">3.3 第三階段：故障（混淆者）</h3>
-    <p>當受眾試圖啟動理性、查證事實時，混淆者會引入大量雜訊。</p>
-    <ul>
-        <li><strong>機關槍辯論術 (Gish Gallop)</strong>：在短時間內拋出大量薄弱、半真半假的論點，使對手疲於奔命。</li>
-        <li><strong>煤氣燈效應 (Gaslighting)</strong>：扭曲現實，讓受眾懷疑自己的記憶與理智。</li>
-        <li><strong>資訊過載 (Information Overload)</strong>：用海量數據淹沒受眾，最終導致大眾產生「政治冷漠」。</li>
-    </ul>
+        <h3 id="level-3">2.3 第三層：認知故障（神秘主義與資訊隔離）</h3>
+        <p><strong>【戰略】：用權威與神蹟壓制理性查證。</strong><br>
+        當外界爆出負面新聞（例如：高層挪用公款、師父收受名車等爭議）時，信徒的理性開始掙扎。此時，組織會啟動防禦機制。</p>
+        <ul>
+            <li><strong>神聖化貪婪（Gaslighting 煤氣燈效應）</strong>：高層會將奢侈的享受解釋為「弟子們發自內心的供養」，甚至宣稱「師父本不執著於物質，是為了圓滿弟子的心願才勉強收下」。扭曲現實，讓懷疑的信徒反過來對自己的「不具足（信心不夠）」感到羞愧。</li>
+            <li><strong>封鎖外界雜訊（環境控制）</strong>：將媒體報導與外界批評一律貼上「魔考（惡魔的考驗）」或「業力干擾」的標籤，嚴格禁止信徒觀看或討論負面新聞。</li>
+        </ul>
 
-    <h3 id="level-4" class="scroll-section">3.4 第四階段：執行（攻擊者）</h3>
-    <p>系統不再親自下場，而是將被洗腦的受眾「武器化」。</p>
-    <ul>
-        <li><strong>妖魔化敵人 (Demonizing the Enemy)</strong>：剝奪反對者的人性，將其塑造成純粹的邪惡。</li>
-        <li><strong>標籤化 (Labeling)</strong>：貼上「老屁股」、「酸民」等貶義標籤，藉此拒絕實質溝通。</li>
-        <li><strong>尋找替罪羔羊 (Scapegoating)</strong>：找人出來「抓戰犯」，將結構性失敗歸咎於特定個體。</li>
-    </ul>
+        <h3 id="level-4">2.4 第四層：側翼執行（上下線階層與菁英升等）</h3>
+        <p><strong>【戰略】：直銷化的「接引利他」，將信徒轉化為業務員與糾察隊。</strong><br>
+        組織會將龐大的信徒群體切割成嚴密的「金字塔階層」。這不再只是單純的宗教聚集，而是一個有 KPI 績效指標的直銷體系。</p>
+        <ul>
+            <li><strong>上下線階層與連坐法</strong>：建立「接引人」與「輔導幹部」的明確階層。你招募（接引）的人越多，你的靈性位階就越高。下線若有懷疑或退轉，上線必須承擔「輔導不周」的靈性責任。</li>
+            <li><strong>菁英階級的升等努力</strong>：只有最聽話、奉獻最多、招募最多人的信徒，才能脫下一般的制服，穿上象徵「核心幹部」的服裝，甚至獲得「近距離親近師父」的特權。這激發了人性的虛榮心與內部競爭，讓信徒為了「升等」而瘋狂燃燒自我與人脈。</li>
+        </ul>
 
-    <h3 id="level-5" class="scroll-section">3.5 第五階段：上鎖（獄卒）</h3>
-    <p>這是從「說服」正式跨入「制約」的最後一步。</p>
-    <ul>
-        <li><strong>沉默螺旋 (Spiral of Silence)</strong>：受眾因害怕社交孤立或被網路霸凌，而選擇噤聲。</li>
-        <li><strong>環境控制 (Milieu Control)</strong>：打造同溫層，確保反對意見無法進入。</li>
-        <li><strong>必然勝利論 (Inevitable Victory)</strong>：營造「大勢已定、反抗無效」的絕望氛圍，摧毀抵抗意志。</li>
-    </ul>
+        <h3 id="level-5">2.5 第五層：心理囚禁（團體制約與靈性勒索）</h3>
+        <p><strong>【戰略】：完成絕對制約，將離開的成本無限放大。</strong><br>
+        當信徒穿上那件特定顏色的制服，在萬人法會中整齊劃一地跪拜、高喊口號時，個人的自我意識已經被徹底抹除，融化在龐大的「團體制約」之中。</p>
+        <ul>
+            <li><strong>制服與儀式的視覺邊界</strong>：統一的服裝與嚴格的儀式動作，在視覺與心理上劃出了絕對的「我們（得救者）」與「他們（業海浮沉者）」的界線。</li>
+            <li><strong>退出的恐懼（靈性勒索）</strong>：這是最後的牢籠。組織會明示或暗示：一旦背叛師父、退出組織，當初被師父壓下來的「業力」就會瞬間引爆。同時，退出意味著你將瞬間失去這幾年來建立的所有社交圈。在「靈性恐懼」與「社交死亡」的雙重夾擊下，信徒只能選擇繼續留在牢籠中。</li>
+        </ul>
 
-    <h2 id="section-4" class="scroll-section">4. 魁儡狀態與反擊機制</h2>
-    <p>當上述五個層級的作用完成後，受眾會進入<span class="highlight">「魁儡狀態」（Golem State）</span>。此時，個體不再只是被動相信敘事，而是成為主動捍衛該系統的執行者（例如：主動出征異見者、檢舉身邊的朋友）。</p>
-    
-    <blockquote>
-        「現代權力不強求你的信念，它製造的是一種環境，讓你覺得盲從比懷疑更安全。」
-    </blockquote>
+        <h2 id="section-3" class="section-title">3. 總結與破局之道</h2>
+        <p>這個版本的藍圖揭示了：那些深陷其中的信徒並非愚蠢，而是他們的<strong>「同理心」、「生存焦慮」與「對自我提升的渴望」</strong>，被一套高度成熟的商業心理學給駭入了。</p>
+        
+        <blockquote>
+            「當善良被設計成直銷上下線的業績，當修行被簡化為金錢數字與盲目崇拜時，這就不再是信仰，而是一場剝削。」
+        </blockquote>
 
-    <p><strong>模式察覺（Pattern Awareness）</strong><br>
-    理論指出，打破這個魔咒的關鍵並非完全脫離社會，而是培養「模式察覺」的能力。當個體能夠辨識出「身份認同正在被當作證據的擋箭牌」，或者意識到「情緒正在被劫持」時，操弄的魔力就會大幅衰退。真正的自主性，是具備承受「不合群」與「社交不適感」的勇氣。</p>
+        <p>真正的信仰應該是讓人獲得內心的自由與平靜，而不是用恐懼與階級將人鎖在神壇之下。要打破這個魔咒，必須看透其「靈性直銷」的商業本質，並重建對現實世界人際關係的信任，才能真正奪回人生的自主權。</p>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // 抓取所有標題與目錄連結
-            const sections = document.querySelectorAll(".scroll-section");
-            const navLinks = document.querySelectorAll(".toc a");
+            const sections = document.querySelectorAll(".section-title, h3[id]");
+            const navLinks = document.querySelectorAll(".sidebar a");
 
             window.addEventListener("scroll", () => {
                 let current = "";
-
-                // 判斷目前滾動到哪個區塊
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    // 減去一點緩衝高度，確保提早切換目錄狀態
-                    if (pageYOffset >= sectionTop - 60) {
+                    if (pageYOffset >= sectionTop - 100) {
                         current = section.getAttribute("id");
                     }
                 });
 
-                // 移除所有 active class，並幫目前所在區塊的目錄加上 active
                 navLinks.forEach(link => {
                     link.classList.remove("active");
                     if (link.getAttribute("href").includes(current)) {
@@ -299,4 +342,3 @@
     </script>
 </body>
 </html>
-
