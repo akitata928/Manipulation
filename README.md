@@ -21,25 +21,3 @@
 3. **混淆者 (The Confuser)**：製造資訊過載與邏輯故障。
 4. **攻擊者 (The Aggressor)**：將部落主義武器化。
 5. **獄卒 (The Jailer)**：利用沉默螺旋達成工程化服從。
-
-## 🚀 快速部署 (GitHub Pages)
-如果您想將此專案部署到自己的 GitHub 上，請遵循以下步驟：
-1. **Fork 或 Clone** 此儲存庫至您的 GitHub 帳號。
-2. 確保根目錄下擁有 `index.html` 檔案。
-3. 進入專案的 **Settings**（設定）頁籤。
-4. 在左側選單找到 **Pages**（GitHub Pages）。
-5. 在 **Build and deployment** 區塊中，將 Source 設為 `Deploy from a branch`。
-6. 將 Branch 選擇為 `main` 或 `master`，然後點擊 **Save**。
-7. 等待約 1~2 分鐘，GitHub 會為您生成專屬的公開網址（如：`https://您的帳號.github.io/專案名稱/`）。
-
-## 🛠️ 技術棧 (Tech Stack)
-* **HTML5**: 語意化標籤建構內容。
-* **CSS3**: 原生變數 (CSS Variables)、Flexbox/Grid 基礎排版、`scroll-behavior` 應用。
-* **JavaScript (ES6)**: 實作輕量級 DOM 監聽與 ScrollSpy 邏輯。
-
-## 🤝 授權與貢獻
-歡迎提交 Pull Request 或建立 Issue 來協助優化網頁效能、增加深色模式 (Dark Mode) 或補充更多在地化的時事案例！
-
----
-*💡 真正的自主性，是具備承受「不合群」與「社交不適感」的勇氣。*
-
